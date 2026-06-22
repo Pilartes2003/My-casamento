@@ -112,19 +112,37 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
 });
 
-document.querySelectorAll(".petal").forEach((petal) => {
-  petal.addEventListener("click", () => {
-    document.querySelectorAll(".petal").forEach((item) => item.classList.remove("is-active"));
-    petal.classList.add("is-active");
-    petalMessage.textContent = petal.dataset.message;
-    petalMessage.animate([
-      { opacity: 0, transform: "translateY(0.5rem)" },
-      { opacity: 1, transform: "translateY(0)" }
-    ], {
-      duration: 420,
-      easing: "ease-out"
-    });
+const roseGarden = document.querySelector("#interactiveRose");
+const petals = [...document.querySelectorAll(".petal")];
+
+function revealPetalMessage(petal) {
+  petals.forEach((item) => item.classList.remove("is-active"));
+  petal.classList.add("is-active");
+  petalMessage.textContent = petal.dataset.message;
+  petalMessage.animate([
+    { opacity: 0, transform: "translateY(0.5rem)" },
+    { opacity: 1, transform: "translateY(0)" }
+  ], {
+    duration: 420,
+    easing: "ease-out"
   });
+}
+
+petals.forEach((petal) => {
+  petal.addEventListener("click", () => revealPetalMessage(petal));
+});
+
+roseGarden.addEventListener("click", (event) => {
+  if (event.target.closest(".petal")) return;
+
+  const rect = roseGarden.getBoundingClientRect();
+  const centerX = rect.left + rect.width / 2;
+  const centerY = rect.top + rect.height / 2;
+  const angle = Math.atan2(event.clientY - centerY, event.clientX - centerX);
+  const normalizedAngle = (angle + Math.PI * 2) % (Math.PI * 2);
+  const petalIndex = Math.round(normalizedAngle / (Math.PI / 3)) % petals.length;
+
+  revealPetalMessage(petals[petalIndex]);
 });
 
 function createPetal() {
