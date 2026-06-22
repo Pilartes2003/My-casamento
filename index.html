@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A romantic first anniversary website for Tommy and Elizandra.">
+  <title>Tommy & Elizandra | First Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="intro" id="intro" aria-label="Intro screen">
+    <div class="intro__content">
+      <div class="rose rose--intro" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <p class="intro__line">For the woman who changed my life.</p>
+      <button class="button button--gold" id="enterButton" type="button">Enter Our Story</button>
+    </div>
+  </div>
+
+  <button class="music-toggle" id="musicToggle" type="button" aria-label="Play background music" aria-pressed="false">
+    <span class="music-toggle__icon" aria-hidden="true">♪</span>
+  </button>
+
+  <header class="hero" id="top">
+    <div class="hero__image" role="img" aria-label="A romantic candlelit rose garden at dusk"></div>
+    <div class="hero__veil"></div>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#story">Story</a>
+      <a href="#memories">Memories</a>
+      <a href="#letter">Letter</a>
+      <a href="#garden">Garden</a>
+    </nav>
+    <section class="hero__content reveal">
+      <p class="eyebrow">One year of forever</p>
+      <h1>Tommy & Elizandra</h1>
+      <p class="hero__copy">A celebration of the day our promise became home.</p>
+      <a class="scroll-cue" href="#story" aria-label="Scroll to our story">
+        <span>Begin</span>
+        <i aria-hidden="true"></i>
+      </a>
+    </section>
+  </header>
+
+  <main>
+    <section class="section counter-section reveal" aria-labelledby="counterTitle">
+      <div class="section__header">
+        <p class="eyebrow">Since June 22, 2025</p>
+        <h2 id="counterTitle">Every second has mattered</h2>
+      </div>
+      <div class="counter" id="counter" aria-live="polite">
+        <div><strong data-unit="days">0</strong><span>Days</span></div>
+        <div><strong data-unit="hours">0</strong><span>Hours</span></div>
+        <div><strong data-unit="minutes">0</strong><span>Minutes</span></div>
+        <div><strong data-unit="seconds">0</strong><span>Seconds</span></div>
+      </div>
+    </section>
+
+    <section class="section timeline-section" id="story" aria-labelledby="storyTitle">
+      <div class="section__header reveal">
+        <p class="eyebrow">Our love story</p>
+        <h2 id="storyTitle">The moments that became us</h2>
+      </div>
+      <div class="timeline">
+        <article class="timeline__item reveal">
+          <span class="timeline__dot" aria-hidden="true"></span>
+          <p class="timeline__date">The first look</p>
+          <h3>When the world became quieter</h3>
+          <p>I found a kind of peace in your smile that I had never known before.</p>
+        </article>
+        <article class="timeline__item reveal">
+          <span class="timeline__dot" aria-hidden="true"></span>
+          <p class="timeline__date">The promise</p>
+          <h3>A yes that changed everything</h3>
+          <p>We chose each other with full hearts, steady hands, and a future waiting for us.</p>
+        </article>
+        <article class="timeline__item reveal">
+          <span class="timeline__dot" aria-hidden="true"></span>
+          <p class="timeline__date">June 22, 2025</p>
+          <h3>The day forever began</h3>
+          <p>Under love, faith, and family, we became husband and wife.</p>
+        </article>
+        <article class="timeline__item reveal">
+          <span class="timeline__dot" aria-hidden="true"></span>
+          <p class="timeline__date">Today</p>
+          <h3>One year, a lifetime to go</h3>
+          <p>Our story keeps growing in the little things: laughter, patience, dreams, and home.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="memories" aria-labelledby="memoriesTitle">
+      <div class="section__header reveal">
+        <p class="eyebrow">Memory gallery</p>
+        <h2 id="memoriesTitle">Scenes from our first chapter</h2>
+      </div>
+      <div class="gallery" id="gallery">
+        <button class="gallery__item reveal" type="button" data-title="Our wedding glow" data-caption="The day your hand became my favorite place to return to.">
+          <span class="memory-art memory-art--one" aria-hidden="true"></span>
+          <span>Wedding Glow</span>
+        </button>
+        <button class="gallery__item reveal" type="button" data-title="Quiet mornings" data-caption="The soft everyday moments that made marriage feel like home.">
+          <span class="memory-art memory-art--two" aria-hidden="true"></span>
+          <span>Quiet Mornings</span>
+        </button>
+        <button class="gallery__item reveal" type="button" data-title="Golden evenings" data-caption="Every sunset became more beautiful because I watched it with you.">
+          <span class="memory-art memory-art--three" aria-hidden="true"></span>
+          <span>Golden Evenings</span>
+        </button>
+        <button class="gallery__item reveal" type="button" data-title="Dancing through life" data-caption="Even ordinary days have music when your heart is near mine.">
+          <span class="memory-art memory-art--four" aria-hidden="true"></span>
+          <span>Our Dance</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section letter-section" id="letter" aria-labelledby="letterTitle">
+      <div class="section__header reveal">
+        <p class="eyebrow">A letter for you</p>
+        <h2 id="letterTitle">Words I will keep choosing</h2>
+      </div>
+      <div class="letter-wrap reveal">
+        <button class="envelope" id="envelope" type="button" aria-expanded="false" aria-controls="loveLetter">
+          <span class="envelope__flap" aria-hidden="true"></span>
+          <span class="envelope__body" aria-hidden="true"></span>
+          <span class="envelope__seal" aria-hidden="true"></span>
+          <span class="envelope__label">Open my letter</span>
+        </button>
+        <article class="letter" id="loveLetter" aria-live="polite">
+          <p id="typedLetter"></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section garden-section" id="garden" aria-labelledby="gardenTitle">
+      <div class="section__header reveal">
+        <p class="eyebrow">Rose garden</p>
+        <h2 id="gardenTitle">Every petal carries a reason</h2>
+      </div>
+      <div class="garden reveal">
+        <div class="garden__message" id="petalMessage">Choose a petal, my love.</div>
+        <div class="rose rose--garden" id="interactiveRose" aria-label="Interactive rose with romantic messages">
+          <button class="petal petal--1" type="button" data-message="I love the way your presence turns every room into home."></button>
+          <button class="petal petal--2" type="button" data-message="I love your heart, gentle and brave in all the right places."></button>
+          <button class="petal petal--3" type="button" data-message="I love building our future one ordinary miracle at a time."></button>
+          <button class="petal petal--4" type="button" data-message="I love your laugh, because it still feels like sunlight finding me."></button>
+          <button class="petal petal--5" type="button" data-message="I love that forever feels possible, peaceful, and beautiful with you."></button>
+          <button class="petal petal--6" type="button" data-message="I love you today, tomorrow, and through every chapter still unwritten."></button>
+          <span class="rose__core" aria-hidden="true"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="finale" aria-labelledby="finalTitle">
+      <div class="finale__content reveal">
+        <div class="heart" aria-hidden="true"></div>
+        <p class="eyebrow">Happy first anniversary</p>
+        <h2 id="finalTitle">My favorite story is still us.</h2>
+        <p class="signature">Tommy <span aria-label="love">❤️</span> Elizandra</p>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightboxTitle" hidden>
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close memory">×</button>
+    <div class="lightbox__panel">
+      <div class="lightbox__art" id="lightboxArt" aria-hidden="true"></div>
+      <h3 id="lightboxTitle"></h3>
+      <p id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
