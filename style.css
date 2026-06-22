@@ -381,11 +381,6 @@ h3 {
   line-height: 1;
 }
 
-.faith-photo small {
-  color: rgba(255, 247, 239, 0.68);
-  font-size: 0.82rem;
-}
-
 .timeline-section {
   background:
     radial-gradient(circle at 5% 30%, rgba(185, 22, 70, 0.2), transparent 18rem),
