@@ -11,6 +11,12 @@ const lightboxTitle = document.querySelector("#lightboxTitle");
 const lightboxCaption = document.querySelector("#lightboxCaption");
 const lightboxArt = document.querySelector("#lightboxArt");
 const petalMessage = document.querySelector("#petalMessage");
+const videoCarousel = document.querySelector(".video-carousel");
+const videoTrack = document.querySelector("#videoTrack");
+const videoSlides = [...document.querySelectorAll(".video-slide")];
+const videoPrev = document.querySelector("#videoPrev");
+const videoNext = document.querySelector("#videoNext");
+const videoDots = document.querySelector("#videoDots");
 
 let audioContext;
 let musicNodes = [];
@@ -111,6 +117,63 @@ lightbox.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !lightbox.hidden) closeLightbox();
 });
+
+let currentVideoSlide = 0;
+
+function pauseCarouselVideos() {
+  videoSlides.forEach((slide) => {
+    const video = slide.querySelector("video");
+    if (video) video.pause();
+  });
+}
+
+function updateVideoCarousel(index) {
+  currentVideoSlide = (index + videoSlides.length) % videoSlides.length;
+  videoTrack.style.transform = `translateX(-${currentVideoSlide * 100}%)`;
+
+  videoSlides.forEach((slide, slideIndex) => {
+    slide.classList.toggle("is-active", slideIndex === currentVideoSlide);
+    slide.setAttribute("aria-hidden", String(slideIndex !== currentVideoSlide));
+  });
+
+  videoDots.querySelectorAll("button").forEach((dot, dotIndex) => {
+    dot.classList.toggle("is-active", dotIndex === currentVideoSlide);
+    dot.setAttribute("aria-current", dotIndex === currentVideoSlide ? "true" : "false");
+  });
+
+  pauseCarouselVideos();
+}
+
+videoSlides.forEach((slide, index) => {
+  const video = slide.querySelector("video");
+  const frame = slide.querySelector(".video-frame");
+  const dot = document.createElement("button");
+
+  dot.type = "button";
+  dot.setAttribute("aria-label", `Mostrar vídeo ${index + 1}`);
+  dot.addEventListener("click", () => updateVideoCarousel(index));
+  videoDots.appendChild(dot);
+
+  video.addEventListener("loadedmetadata", () => {
+    frame.classList.remove("is-missing");
+    frame.classList.add("is-ready");
+  });
+
+  video.addEventListener("error", () => {
+    frame.classList.add("is-missing");
+    frame.classList.remove("is-ready");
+  });
+});
+
+videoPrev.addEventListener("click", () => updateVideoCarousel(currentVideoSlide - 1));
+videoNext.addEventListener("click", () => updateVideoCarousel(currentVideoSlide + 1));
+
+videoCarousel.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowLeft") updateVideoCarousel(currentVideoSlide - 1);
+  if (event.key === "ArrowRight") updateVideoCarousel(currentVideoSlide + 1);
+});
+
+updateVideoCarousel(0);
 
 const roseGarden = document.querySelector("#interactiveRose");
 const petals = [...document.querySelectorAll(".petal")];

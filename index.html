@@ -31,6 +31,7 @@
     <nav class="nav" aria-label="Navegação principal">
       <a href="#story">História</a>
       <a href="#memories">Memórias</a>
+      <a href="#videos">Vídeos</a>
       <a href="#letter">Carta</a>
       <a href="#garden">Jardim</a>
     </nav>
@@ -114,6 +115,82 @@
           <span class="memory-art memory-art--four" aria-hidden="true"></span>
           <span>A Nossa Dança</span>
         </button>
+      </div>
+    </section>
+
+    <section class="section video-section" id="videos" aria-labelledby="videosTitle">
+      <div class="section__header reveal">
+        <p class="eyebrow">Momentos em movimento</p>
+        <h2 id="videosTitle">Pequenos filmes da nossa vida</h2>
+      </div>
+      <div class="video-carousel reveal" tabindex="0" aria-roledescription="carrossel" aria-label="Vídeos de momentos com Elizandra">
+        <button class="carousel-button carousel-button--prev" id="videoPrev" type="button" aria-label="Vídeo anterior">
+          <span aria-hidden="true">‹</span>
+        </button>
+        <div class="video-carousel__viewport">
+          <div class="video-carousel__track" id="videoTrack">
+            <article class="video-slide is-active" aria-label="Vídeo 1 de 4">
+              <div class="video-frame is-missing">
+                <video controls preload="metadata" poster="" aria-label="Nosso primeiro vídeo">
+                  <source src="videos/momento-01.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <span>01</span>
+                  <strong>O nosso primeiro momento</strong>
+                  <small>Substitui por videos/momento-01.mp4</small>
+                </div>
+              </div>
+              <h3>O nosso primeiro momento</h3>
+              <p>Aquele instante que merece ser revisto com calma, sorriso e coração cheio.</p>
+            </article>
+            <article class="video-slide" aria-label="Vídeo 2 de 4">
+              <div class="video-frame is-missing">
+                <video controls preload="metadata" poster="" aria-label="Um dia especial juntos">
+                  <source src="videos/momento-02.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <span>02</span>
+                  <strong>Um dia especial</strong>
+                  <small>Substitui por videos/momento-02.mp4</small>
+                </div>
+              </div>
+              <h3>Um dia especial</h3>
+              <p>Os risos, os abraços e as pequenas partes do dia que ficaram guardadas em nós.</p>
+            </article>
+            <article class="video-slide" aria-label="Vídeo 3 de 4">
+              <div class="video-frame is-missing">
+                <video controls preload="metadata" poster="" aria-label="Uma viagem para recordar">
+                  <source src="videos/momento-03.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <span>03</span>
+                  <strong>Uma viagem para recordar</strong>
+                  <small>Substitui por videos/momento-03.mp4</small>
+                </div>
+              </div>
+              <h3>Uma viagem para recordar</h3>
+              <p>Porque alguns caminhos ficam mais bonitos quando são caminhados lado a lado.</p>
+            </article>
+            <article class="video-slide" aria-label="Vídeo 4 de 4">
+              <div class="video-frame is-missing">
+                <video controls preload="metadata" poster="" aria-label="O nosso para sempre">
+                  <source src="videos/momento-04.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                  <span>04</span>
+                  <strong>O nosso para sempre</strong>
+                  <small>Substitui por videos/momento-04.mp4</small>
+                </div>
+              </div>
+              <h3>O nosso para sempre</h3>
+              <p>Um lembrete em vídeo de que a nossa história ainda está só a começar.</p>
+            </article>
+          </div>
+        </div>
+        <button class="carousel-button carousel-button--next" id="videoNext" type="button" aria-label="Próximo vídeo">
+          <span aria-hidden="true">›</span>
+        </button>
+        <div class="video-dots" id="videoDots" aria-label="Escolher vídeo"></div>
       </div>
     </section>
 
