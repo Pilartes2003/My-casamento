@@ -55,6 +55,7 @@ a {
   display: grid;
   place-items: center;
   padding: 2rem;
+  overflow-y: auto;
   background:
     radial-gradient(circle at center, rgba(119, 7, 43, 0.52), transparent 18rem),
     radial-gradient(circle at 50% 100%, rgba(216, 174, 104, 0.18), transparent 24rem),
@@ -71,16 +72,17 @@ a {
 .intro__content {
   display: grid;
   justify-items: center;
-  gap: 1.7rem;
+  gap: clamp(0.9rem, 3svh, 1.7rem);
+  width: min(38rem, 100%);
   text-align: center;
 }
 
 .intro__line {
-  max-width: 18rem;
+  max-width: min(36rem, 92vw);
   margin: 0;
   color: var(--gold-soft);
   font-family: var(--font-display);
-  font-size: clamp(2rem, 8vw, 4.5rem);
+  font-size: clamp(2.25rem, min(9vw, 10svh), 4.2rem);
   line-height: 0.95;
   opacity: 0;
   animation: fadeUp 1.4s ease 0.45s forwards;
