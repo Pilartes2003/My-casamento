@@ -141,12 +141,26 @@ function updateVideoCarousel(index) {
     dot.setAttribute("aria-current", dotIndex === currentVideoSlide ? "true" : "false");
   });
 
+  const activeVideo = videoSlides[currentVideoSlide].querySelector("video");
+  if (activeVideo && activeVideo.readyState === 0) activeVideo.load();
+
   pauseCarouselVideos();
+}
+
+function setVideoFrameReady(video) {
+  const frame = video.closest(".video-frame");
+  frame.classList.remove("is-missing");
+  frame.classList.add("is-ready");
+}
+
+function setVideoFrameMissing(video) {
+  const frame = video.closest(".video-frame");
+  frame.classList.add("is-missing");
+  frame.classList.remove("is-ready");
 }
 
 videoSlides.forEach((slide, index) => {
   const video = slide.querySelector("video");
-  const frame = slide.querySelector(".video-frame");
   const dot = document.createElement("button");
 
   dot.type = "button";
@@ -154,15 +168,13 @@ videoSlides.forEach((slide, index) => {
   dot.addEventListener("click", () => updateVideoCarousel(index));
   videoDots.appendChild(dot);
 
-  video.addEventListener("loadedmetadata", () => {
-    frame.classList.remove("is-missing");
-    frame.classList.add("is-ready");
-  });
+  video.addEventListener("loadedmetadata", () => setVideoFrameReady(video));
+  video.addEventListener("loadeddata", () => setVideoFrameReady(video));
+  video.addEventListener("canplay", () => setVideoFrameReady(video));
 
-  video.addEventListener("error", () => {
-    frame.classList.add("is-missing");
-    frame.classList.remove("is-ready");
-  });
+  video.addEventListener("error", () => setVideoFrameMissing(video));
+
+  if (video.readyState > 0) setVideoFrameReady(video);
 });
 
 videoPrev.addEventListener("click", () => updateVideoCarousel(currentVideoSlide - 1));
