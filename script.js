@@ -1,4 +1,4 @@
-const weddingDate = new Date("2025-06-22T00:00:00");
+const weddingDate = new Date("2025-07-05T00:00:00");
 const intro = document.querySelector("#intro");
 const enterButton = document.querySelector("#enterButton");
 const musicToggle = document.querySelector("#musicToggle");
