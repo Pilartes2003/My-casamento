@@ -23,9 +23,14 @@ let musicNodes = [];
 let isPlaying = false;
 let hasTypedLetter = false;
 
+if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
 document.body.classList.add("is-locked");
 
 enterButton.addEventListener("click", () => {
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   intro.classList.add("is-hidden");
   document.body.classList.remove("is-locked");
   setTimeout(() => intro.remove(), 950);
