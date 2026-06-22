@@ -60,7 +60,7 @@ function updateCounter() {
 updateCounter();
 setInterval(updateCounter, 1000);
 
-const letterText = "My Elizandra, one year ago I promised to love you, protect you, and choose you. Today I understand that promise even more deeply. You are my calm, my joy, my answered prayer, and the most beautiful part of my every day. I love the life we are building, and I will keep choosing you in every season, in every sunrise, in every forever we are given.";
+const letterText = "Minha Elizandra, há um ano prometi amar-te, proteger-te e escolher-te. Hoje compreendo essa promessa ainda mais profundamente. Tu és a minha calma, a minha alegria, a minha oração respondida e a parte mais bonita de todos os meus dias. Amo a vida que estamos a construir, e vou continuar a escolher-te em cada estação, em cada amanhecer, em cada para sempre que nos for dado.";
 
 function typeLetter() {
   if (hasTypedLetter) return;
@@ -196,12 +196,12 @@ musicToggle.addEventListener("click", async () => {
   if (isPlaying) {
     await audioContext.resume();
     musicToggle.classList.add("is-playing");
-    musicToggle.setAttribute("aria-label", "Pause background music");
+    musicToggle.setAttribute("aria-label", "Pausar música de fundo");
     musicToggle.setAttribute("aria-pressed", "true");
   } else {
     await audioContext.suspend();
     musicToggle.classList.remove("is-playing");
-    musicToggle.setAttribute("aria-label", "Play background music");
+    musicToggle.setAttribute("aria-label", "Tocar música de fundo");
     musicToggle.setAttribute("aria-pressed", "false");
   }
 });
