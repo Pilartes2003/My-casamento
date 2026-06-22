@@ -156,23 +156,18 @@ a {
 }
 
 .hero__image {
-  background:
-    radial-gradient(ellipse at 50% 72%, rgba(255, 228, 174, 0.34), transparent 10rem),
-    radial-gradient(circle at 22% 74%, rgba(185, 22, 70, 0.7), transparent 5rem),
-    radial-gradient(circle at 78% 72%, rgba(185, 22, 70, 0.52), transparent 5.6rem),
-    radial-gradient(ellipse at 50% 100%, #160407 0 14rem, transparent 14.2rem),
-    linear-gradient(180deg, rgba(24, 8, 17, 0.15), rgba(12, 2, 6, 0.68)),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900'%3E%3Crect width='1200' height='900' fill='%23130812'/%3E%3Cg opacity='.38'%3E%3Ccircle cx='600' cy='260' r='170' fill='%23d8ae68'/%3E%3Ccircle cx='600' cy='260' r='136' fill='%23130812'/%3E%3C/g%3E%3Cg fill='%23b91646' opacity='.72'%3E%3Cpath d='M184 704c52-90 122-90 174 0-54 58-119 56-174 0Z'/%3E%3Cpath d='M838 706c58-98 136-98 194 0-61 63-133 61-194 0Z'/%3E%3C/g%3E%3Cg stroke='%23d8ae68' stroke-width='4' opacity='.42' fill='none'%3E%3Cpath d='M0 624c260-80 390-38 600-8s360-74 600 4'/%3E%3Cpath d='M0 686c286-70 430-28 628-6s326-64 572-2'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("img/background.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: 58% center;
   transform: scale(1.02);
 }
 
 .hero__veil {
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(8, 2, 5, 0.84), rgba(8, 2, 5, 0.22) 58%, rgba(8, 2, 5, 0.68)),
-    linear-gradient(180deg, rgba(8, 2, 5, 0.2), rgba(8, 2, 5, 0.9));
+    linear-gradient(90deg, rgba(8, 2, 5, 0.88) 0%, rgba(8, 2, 5, 0.58) 34%, rgba(8, 2, 5, 0.2) 64%, rgba(8, 2, 5, 0.48) 100%),
+    linear-gradient(180deg, rgba(8, 2, 5, 0.12), rgba(8, 2, 5, 0.9) 94%),
+    radial-gradient(circle at 74% 48%, rgba(216, 174, 104, 0.13), transparent 22rem);
 }
 
 .nav {
@@ -994,6 +989,18 @@ h3 {
   }
   55% {
     transform: rotate(45deg) scale(0.98);
+  }
+}
+
+@media (max-width: 639px) {
+  .hero__image {
+    background-position: 66% center;
+  }
+
+  .hero__veil {
+    background:
+      linear-gradient(180deg, rgba(8, 2, 5, 0.42), rgba(8, 2, 5, 0.82) 68%, rgba(8, 2, 5, 0.95)),
+      linear-gradient(90deg, rgba(8, 2, 5, 0.72), rgba(8, 2, 5, 0.26) 58%, rgba(8, 2, 5, 0.68));
   }
 }
 
